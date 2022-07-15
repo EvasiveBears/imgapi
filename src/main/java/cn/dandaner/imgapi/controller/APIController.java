@@ -14,26 +14,27 @@ import java.io.IOException;
 @Controller
 public class APIController {
     public static int NUM = 0;
+
     @GetMapping("/getRandomImage")
-    public void getRandomImage(HttpServletResponse response){
-        try {
-            String path = System.getProperty("user.home") + "/PublicShare/website/";
-            System.out.println(path);
-            String preString = "https://oss.dandaner.cn/directlink/PublicShare/HelloKitty/";
-            File file = new File(path);
-            File[] files = file.listFiles();
-            if (files != null){
-                if (NUM <= files.length - 1){
-                    System.out.println(files[NUM].getName());
-                    response.sendRedirect(preString + files[NUM].getName());
-                    NUM++;
-                }else {
-                    NUM = 0;
-                    response.sendRedirect(preString + files[NUM].getName());
-                }
-            }else {
-                response.sendRedirect("https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png");
+    public void getRandomImage(HttpServletResponse response) {
+        String url = "https://#";
+        String path = System.getProperty("user.home") + "/PublicShare/HelloKitty/";
+        System.out.println(path);
+        String preString = "https://oss.dandaner.cn/directlink/PublicShare/HelloKitty/";
+        File file = new File(path);
+        File[] files = file.listFiles();
+        if (files != null) {
+            if (NUM <= files.length - 1) {
+                System.out.println(files[NUM].getName());
+                url = preString + files[NUM].getName();
+                NUM++;
+            } else {
+                NUM = 0;
+                url = preString + files[NUM].getName();
             }
+        }
+        try {
+            response.sendRedirect(url);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
