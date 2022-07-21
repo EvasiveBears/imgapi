@@ -18,9 +18,9 @@ public class APIController {
     @GetMapping("/getRandomImage")
     public void getRandomImage(HttpServletResponse response) {
         String url = "https://#";
-        String path = System.getProperty("user.home") + "/PublicShare/HelloKitty/";
+        String path = System.getProperty("user.home") + "/oss/bucket/publicshare/HelloKitty/";
         System.out.println(path);
-        String preString = "https://oss.dandaner.cn/directlink/PublicShare/HelloKitty/";
+        String preString = "https://oss.dandaner.cn/publicshare/HelloKitty/";
         File file = new File(path);
         File[] files = file.listFiles();
         if (files != null) {
