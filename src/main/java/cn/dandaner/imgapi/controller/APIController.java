@@ -21,7 +21,7 @@ public class APIController {
 //        String path = System.getProperty("user.home") + "/zfile/file/HelloKitty/
         String path = "/kitty/";
         System.out.println(path);
-        String preString = "https://oss.dandaner.cn/pd/publicshare/HelloKitty/";
+        String preString = "https://oss.dandaner.cn/publicshare/HelloKitty/";
         File file = new File(path);
         File[] files = file.listFiles();
         if (files != null) {
